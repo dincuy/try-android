@@ -1,0 +1,18 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Set up
+    init: |
+      sdkmanager "platform-tools" "platforms;android-33" "build-tools;33.0.0"
+    command: |
+      ./gradlew assembleDebug
+
+ports:
+  - port: 8080
+    onOpen: open-preview
+
+vscode:
+  extensions:
+    - vscjava.vscode-java-pack
+    - redhat.vscode-yaml
